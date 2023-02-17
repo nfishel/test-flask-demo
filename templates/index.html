@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>This is my Webpage!!!!</h1>
+  <h3>Here are the things I have to do today</h3>
+  <ol>
+    {% for item in todos %}
+  <li><input type="checkbox" name="item" id="">{{ item }}</li>
+    {% endfor %}
+  </ol>
+
+  {% for i in range(100) %}
+    <p>This is paragraph {{i}}</p>
+  {% endfor %}
+
+  {% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+  <img src="{{ url_for('static', filename='banner1.jpg')}}" alt="where is my pic?" class="img-fluid" id="banner">
+</div>
+  <form action="{{ url_for('roll') }}?m={{m}}" method="post">
+    <input type="hidden" name="roll_count" value={{roll_count}}>
+    <h3 class="mb-1">🎲 Roll: {{roll_count}}</h3>  
+    {% include "dicecomp.html" %}
+    
+      {% if roll_count < m %}
+        <input type="submit" value="Roll {{roll_count + 1}}">
+      {% else %}
+        <input type="submit" value="End of Turn" disabled>
+      {% endif %}
+  </form>
+    {% if roll_count >= m %}
+      <a href="/roll" class="button">New Round</a>
+    {% endif %}
+{% endblock %}
+
+
+
+

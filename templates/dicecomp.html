@@ -1,0 +1,21 @@
+<div style="display:grid;grid-template-columns:repeat(10, 1fr);place-items:center;">
+  {% for die in dice %}
+    <div>
+      {% if die.previous == "H" %}
+        <p class="mb-1 mt-1"style="color:red;font-size:6rem;text-align:center;">{{die.face}}</p>
+      {% else %}
+        <p class="mb-1 mt-1"style="color:black;font-size:6rem;text-align:center;">{{die.face}}</p>
+      {% endif %}
+      {% if roll_count < m %}
+        <select class="mb-4" name="die{{die.die}}" id="die{{die.die}}">
+          <option value="0">ROLL</option>
+          {% if die.previous == "H" %}
+            <option value="{{die.value}}" selected>HOLD</option>
+          {% else %}
+            <option value="{{die.value}}">HOLD</option>
+          {% endif %}
+        </select>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
