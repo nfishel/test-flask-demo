@@ -21,7 +21,7 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg shadow sticky-top" style="background-color: #efc325;">
+<!--     <nav class="navbar navbar-expand-lg shadow sticky-top" style="background-color: #efc325;">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ url_for('roll') }}">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,8 @@
     </div>
   </div>
 </nav>
-
+ -->
+    {% include "nav2.html" %}
       {% block content %}
       {% endblock %}
     <div class="container">
