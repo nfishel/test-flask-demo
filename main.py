@@ -1,28 +1,16 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for, session
-from flask_session import Session
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 
 app = Flask(__name__)
-# configure sessions
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = 'filesystem'
-Session(app)
+
 TODOS = []  
 @app.route("/")
 def index():
-  if session.get("TODOS"):
-    TODOS = session.get("TODOS")
-  else:
-    session["TODOS"] = []
   return render_template("index.html")
 
-@app.route("/api/todo")
-def apitodo():
-  return jsonify(session.get("TODOS"))
   
 #better TODO App
 @app.route("/add", methods=["GET","POST"])
 def add():
-  TODOS = session.get("TODOS")
   # GET --> Show the form to add a new task
   if request.method == "GET":
     return render_template("addtask.html")
@@ -32,7 +20,7 @@ def add():
     if len(TODOS) == 0:
       id = 1
     else:
-      id = session["TODOS"][-1]['id'] + 1
+      id = TODOS[-1]['id'] + 1
     # get data from the form
     task_name = request.form.get("task_name")
     priority = request.form.get("priority")
@@ -46,12 +34,12 @@ def add():
       "priority": priority,
       "is_complete": is_complete
     }
-    session["TODOS"].append(task)
+    TODOS.append(task)
     return redirect(url_for("todo"))
 
 @app.route("/todo")
 def todo():
-  return render_template("todo.html", todos=session["TODOS"])
+  return render_template("todo.html", todos=TODOS)
     
 if __name__ == "__main__":
   app.run(host="0.0.0.0",port="80", debug=True)
