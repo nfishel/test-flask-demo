@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  
+  <h1>This is my Webpage!!!!</h1>
+  <h3>Here are the things I have to do today</h3>
+  <ol>
+    {% for item in todos %}
+  <li>
+    {% if item.is_complete %}
+    <input type="checkbox" checked name="item{{item.id}}" id="item{{item.id}}"> <span class="pl-3">{{ item.task_name }}</span> 
+    {% else %}
+    <input type="checkbox" name="item{{item.id}}" id="item{{item.id}}"> {{ item.task_name }} 
+    {% endif %}
+    <a href="/del/{{item.id}}">Delete Item</a>
+  </li>
+    {% endfor %}
+  </ol>
+
+  {% for i in range(20) %}
+    <p>This is paragraph {{i}}</p>
+  {% endfor %}
+
+</div>
+  {% endblock %}

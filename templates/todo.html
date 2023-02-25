@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+<h1 class="mt-3 mb-3">Here is what I need TODO Today</h1>
+{% if todos %}
+    {% for task in todos %}
+      <div class="row">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" {% if task.is_complete +%}checked{% endif %}>
+          <span>{{task.name}}</span>
+            {% if task.priority == "high" %}
+              <span>❗️</span>
+            {% elif task.priority == "medium" %}
+              <span>🟡</span>
+            {% else %}
+              <span>🟢</span>
+            {% endif %}
+            
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="lead">No Tasks to Display</p>
+    <a href="/add">Add a New Task</a>
+  {% endif %}
+</div>
+{% endblock %}

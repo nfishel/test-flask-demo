@@ -1,19 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="hero">
+  <h1 class="display-4">Hello, Royals! <img src="{{ url_for('static', filename='lion.png') }}" alt=""></h1>
+</div>
 <div class="container">
-  
-  <h1>This is my Webpage!!!!</h1>
-  <h3>Here are the things I have to do today</h3>
-  <ol>
-    {% for item in todos %}
-  <li><input type="checkbox" name="item" id="">{{ item }}</li>
-    {% endfor %}
-  </ol>
-
-  {% for i in range(100) %}
-    <p>This is paragraph {{i}}</p>
-  {% endfor %}
+  <h1 class="mt-4">Welcome to Computer Science 1: Programming!</h1>
+  <div class="row">
+    <div class="col-12 col-sm-1">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.8" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+</svg>
+      
+    </div>
+    <div class="col-12 col-sm-11">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere rerum ipsum consectetur recusandae nemo esse laborum repudiandae ducimus impedit dolorem libero, ipsam nulla ullam amet facilis voluptates perferendis hic doloribus quis. Non nostrum molestias mollitia veritatis necessitatibus cupiditate excepturi cumque veniam totam itaque corporis repudiandae modi consequuntur eum, doloribus quaerat nesciunt. Quis, tempora ut error id illo rem natus sed qui soluta magni. Blanditiis quo fuga possimus in laboriosam, tempore nulla molestiae cupiditate animi vero?</p>
+    </div>
+  </div>
 
 </div>
-  {% endblock %}
+  
+
+
+{% endblock %}

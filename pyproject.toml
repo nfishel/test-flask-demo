@@ -16,6 +16,7 @@ wkhtmltopdf = "^0.2"
 Pillow = "^9.4.0"
 black = "^23.1.0"
 cs50 = "^9.2.5"
+Flask-Session = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
